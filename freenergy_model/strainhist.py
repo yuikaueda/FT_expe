@@ -26,9 +26,12 @@ for i in range(2, 10):
     b_ini += 0.025
     step += 1
 
+#fig = plt.figure(figsize=(10, 8))
+#ax = fig.add_subplot(1, 1, 1)
 fig, ax = plt.subplots(1, 1)
+
 ax.bar(bb, aa, width=0.025, color='darkorange', edgecolor="#000000")
 plt.xlabel(r"$\varepsilon$", fontsize = 18)
 plt.ylabel(r"PDF", fontsize = 18)
-fig.savefig("strainhist.png")
+fig.savefig("nolabel_strainhist.png")
 plt.show()
