@@ -67,9 +67,9 @@ smmoth_gauss = gaussian(x_new, amplitude=out.best_values['g1_amplitude'], center
 pp=[]
 step0=0
 for num in range(0, 50):
-    pp_i =math.log(smmoth_gauss[num]/smmoth_gauss[num+99-step])
+    pp_i =math.log(smmoth_gauss[num]/smmoth_gauss[num+99-step0])
     pp.append(pp_i)
-    step+=2
+    step0+=2
 
 step=0
 for num in range(50, 100):
@@ -81,14 +81,14 @@ for num in range(50, 100):
 
 pp = np.array(pp)
 
-x_1 = x_new[x_new>0.1]
-pp_1 = pp[x_new>0.1]
+x_1 = x_new[x_new>0.06]
+pp_1 = pp[x_new>0.06]
 
-x_2 = x_new[(x_new>-0.1) & (x_new<0.1)]
-pp_2 = pp[(x_new>-0.1) & (x_new<0.1)]
+x_2 = x_new[(x_new>-0.06) & (x_new<0.06)]
+pp_2 = pp[(x_new>-0.06) & (x_new<0.06)]
 
-x_3 = x_new[x_new<-0.1]
-pp_3 = pp[x_new<-0.1]
+x_3 = x_new[x_new<-0.06]
+pp_3 = pp[x_new<-0.06]
 
 K=1.38e-23
 T=309.5
@@ -131,5 +131,5 @@ ax.plot(x_3, array_pp3_fit, '-', markersize=100, c='green', label = rf'$({round(
 plt.xlabel(r"$\varepsilon$", fontsize = 18)
 plt.ylabel(r"$ln[P( \Delta x) / P(- \Delta x)]$", fontsize = 18)
 ax.legend()
-fig.savefig("ktzentai_F2_fitcurve_strainhist.png")
+fig.savefig("re_ktzentai_F2_fitcurve_strainhist.png")
 plt.show()

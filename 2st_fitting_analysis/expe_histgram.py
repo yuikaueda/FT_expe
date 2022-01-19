@@ -32,5 +32,5 @@ for i in range(2, 10):
 #ax.bar(b, a, width=0.025, edgecolor="#000000")
 plt.xlabel(r"Sarcomere length $[\mu m]$", fontsize = 18)
 plt.ylabel(r"$PDF$", fontsize = 18)
-fig.savefig("new_oomozi_strainhist_round2_bin10")
+fig.savefig("hist_data.png")
 plt.show()
