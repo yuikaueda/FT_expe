@@ -30,14 +30,19 @@ for i in range(0, 3):
 step = 0
 b_ini = 0.025
 
-for i in range(2, 10):
+for i in range(2, 9):
     y.append(a[9-step])
     x.append(b_ini)
     b_ini += 0.025
     step += 1
 
+y.append(a[0]+a[1]+a[2])
+x.append(b_ini)
+
 x=np.array(x)
 y=np.array(y)
+
+print(y)
 
 gauss1 = GaussianModel(prefix='g1_')
 pars = gauss1.guess(y, x)
@@ -84,5 +89,5 @@ ax.legend()
 plt.xlim(-0.2, 0.2)
 plt.xlabel(r"$\varepsilon$", fontsize = 18)
 plt.ylabel(r"$PDF$", fontsize = 18)
-fig.savefig("ten_gausifit.png")
+fig.savefig("hennkan_ten_strainfit.png")
 plt.show()
