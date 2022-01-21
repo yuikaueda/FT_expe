@@ -120,26 +120,26 @@ pp = np.array(pp)
 
 K=1.38e-23
 T=309.5
-def fit(x,A,B):
-    return A*x/(K*T)+B/(K*T)
+def fit(x,A):
+    return A*x*x/(K*T)
 
-x_1 = x_new1[x_new1<-0.05]
-pp_1 = pp[x_new1<-0.05]
+x_1 = x_new1[x_new1<0]
+pp_1 = pp[x_new1<0]
 #array_pp1_fit = np.array(pp1_fit)
 
-x_2 = x_new1[(x_new1>-0.05) & (x_new1<0.05)]
-pp_2 = pp[(x_new1>-0.05) & (x_new1<0.05)]
+#x_2 = x_new1[(x_new1>-0.05) & (x_new1<0.05)]
+#pp_2 = pp[(x_new1>-0.05) & (x_new1<0.05)]
 #array_pp2_fit = np.array(pp2_fit)
 
-x_3 = x_new1[x_new1>0.05]
-pp_3 = pp[x_new1>0.05]
+x_3 = x_new1[x_new1>0]
+pp_3 = pp[x_new1>0]
 #array_pp3_fit = np.array(pp3_fit)
 
 param_1, cov_1 = curve_fit(fit, x_1, pp_1)
 print(param_1)
      
-param_2, cov_2 = curve_fit(fit, x_2, pp_2)
-print(param_2)
+#param_2, cov_2 = curve_fit(fit, x_2, pp_2)
+#print(param_2)
      
 param_3, cov_3 = curve_fit(fit, x_3, pp_3)
 print(param_3)
@@ -148,37 +148,37 @@ print(param_3)
 
 pp1_fit=[]
 for num in range(len(x_1)):
-    pp1_fit.append(param_1[0]*x_1[num]/(K*T)+param_1[1]/(K*T))
+    pp1_fit.append(param_1[0]*x_1[num]*x_1[num]/(K*T))
 array_pp1_fit = np.array(pp1_fit)
-
+'''
 pp2_fit=[]
 for num in range(len(x_2)):
     pp2_fit.append(param_2[0]*x_2[num]/(K*T)+param_2[1]/(K*T))
 array_pp2_fit = np.array(pp2_fit)
-
+'''
 pp3_fit=[]
 for num in range(len(x_3)):
-    pp3_fit.append(param_3[0]*x_3[num]/(K*T)+param_3[1]/(K*T))
+    pp3_fit.append(param_3[0]*x_3[num]*x_3[num]/(K*T))
 array_pp3_fit = np.array(pp3_fit)
 
 
 fig, ax = plt.subplots(1, 1)
 #ax.scatter(x, y, s=5, c='darkorange', label = r'com_data')
 #ax.plot(x, out.best_fit, 'r-')
-#ax.plot(x_1, array_pp1_fit, '-', markersize=100, c='red', label = rf'$(({round(param_1[0],20)})x+({round(param_1[1], 21)}))/(KT)$')
+ax.plot(x_1, array_pp1_fit, '-', markersize=100, c='red', label = rf'$({round(param_1[0],20)})x^2)/(KT)$')
 #ax.plot(x_2, array_pp2_fit, '-', markersize=100, c='blue', label = rf'$(({round(param_2[0],20)})x+({round(param_2[1], 21)}))/(KT)$')
-#ax.plot(x_3, array_pp3_fit, '-', markersize=100, c='green', label = rf'$({round(param_3[0],20)})x+({round(param_3[1], 21)})/(KT)$')
+ax.plot(x_3, array_pp3_fit, '-', markersize=100, c='green', label = rf'$({round(param_3[0],20)})x^2/(KT)$')
 #ax.plot(x_3, array_pp3_fit, '-', markersize=100, c='green', label = rf'$(({round(param_3[0],20)})x+({round(param_3[1], 21)}))/(KT)$')
 plt.xlabel(r"$\varepsilon$", fontsize = 18)
 plt.ylabel(r"$ln[P( \Delta x) / P(- \Delta x)]$", fontsize = 18)
 
-#ax.plot(x_new1, pp, "o", markersize=3, c='black', label = r'data')
-ax.plot(x_new2, smmoth_gauss2, "-", c='black')
-ax.plot(x_new2, smmoth_gauss1, "-", c='black')
+ax.plot(x_new1, pp, "o", markersize=3, c='black', label = r'data')
+#ax.plot(x_new2, smmoth_gauss2, "-", c='black')
+#ax.plot(x_new2, smmoth_gauss1, "-", c='black')
 #ax.bar(x, y, width=0.025, edgecolor="#000000")
 ax.legend()
 plt.xlim(-0.2, 0.2)
-#plt.xlabel(r"$\varepsilon$", fontsize = 18)
-#plt.ylabel(r"$PDF$", fontsize = 18)
-#fig.savefig("lnp_dataplus_com_2gausifit.png")
+plt.xlabel(r"$\varepsilon$", fontsize = 18)
+plt.ylabel(r"$PDF$", fontsize = 18)
+fig.savefig("remodel_lnp_dataplus_com_2gausifit.png")
 plt.show()
