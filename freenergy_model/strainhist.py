@@ -30,8 +30,8 @@ for i in range(2, 10):
 #ax = fig.add_subplot(1, 1, 1)
 fig, ax = plt.subplots(1, 1)
 
-ax.bar(bb, aa, width=0.025, color='darkorange', edgecolor="#000000")
+ax.bar(bb, aa, width=0.025, color='purple', edgecolor="#000000")
 plt.xlabel(r"$\varepsilon$", fontsize = 18)
 plt.ylabel(r"PDF", fontsize = 18)
-fig.savefig("nolabel_strainhist.png")
+fig.savefig("colornolabel_strainhist.png")
 plt.show()
