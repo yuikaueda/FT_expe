@@ -55,10 +55,10 @@ out = mod.fit(y, pars, x=x)
 print(out.fit_report())
 print(out.best_values['g1_center'])
 
-x_max = x.max()
+x_max = 0.2
 x_min = -x_max
 
-x_new = np.linspace(x.min(),x.max(),1000)
+x_new = np.linspace(-0.2,0.2,1000)
 smmoth_gauss = gaussian(x_new, amplitude=out.best_values['g1_amplitude'], center=out.best_values['g1_center'], sigma=out.best_values['g1_sigma'])+gaussian(x_new, amplitude=out.best_values['g2_amplitude'], center=out.best_values['g2_center'], sigma=out.best_values['g2_sigma'])
 
 fig, ax = plt.subplots(1, 1)
@@ -67,7 +67,8 @@ ax.scatter(x, y, s=5, label = r'data')
 ax.plot(x_new, smmoth_gauss, "-", c='red', label = r'gaussian fitting')
 #ax.bar(x, y, width=0.025, edgecolor="#000000")
 ax.legend()
+plt.xlim(-0.2,0.2)
 plt.xlabel(r"$\varepsilon$", fontsize = 18)
 plt.ylabel(r"$PDF$", fontsize = 18)
-fig.savefig("fitcurve_strainhist_round2_bin10")
+fig.savefig("re_fit_strainhist.png")
 plt.show()
