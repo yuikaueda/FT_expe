@@ -25,8 +25,9 @@ y4 = -18.9565*x4+8.35652
 x5 = x[(x<=1.35)&(x>=1.0)]
 y5 = -11.7143*x5+19.7143
 
-fig = plt.figure(figsize=(10, 8))
-ax = fig.add_subplot(1, 1, 1)
+#fig = plt.figure(figsize=(10, 8))
+#ax = fig.add_subplot(1, 1, 1)
+fig, ax = plt.subplots(1, 1)
 
 ax.plot(x1, y1, '-', markersize=100, c='red', label = r"$H_{1}$")
 ax.plot(x2, y2, '-', markersize=100, c='blue', label = r"$H_{2}$")
@@ -42,5 +43,5 @@ plt.yticks(color="None")
 #ax.set_ylim(top=15)
 
 ax.legend()
-fig.savefig("re_label_freeenergy_length_dot.png")
+fig.savefig("rere_label_freeenergy_length_dot.png")
 plt.show()
