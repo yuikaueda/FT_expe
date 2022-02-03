@@ -23,15 +23,15 @@ y2 = 3.16667*x2-4.43333
 #y4 = -12.8696*x4+13.4696
 
 fig, ax = plt.subplots(1, 1)
-ax.plot(x1, y1, '-', markersize=100, c='blue', label = r"$G_{c2}$")
-ax.plot(x2, y2, '-', markersize=100, c='green', label = r"$G_{t1}$")
+ax.plot(x1, y1, '-', markersize=100, c='blue', label = r"$H_{c2}$")
+ax.plot(x2, y2, '-', markersize=100, c='green', label = r"$H_{t1}$")
 #ax.plot(x3, y3, '-', markersize=100, c='green', label = r"$G_{3}$")
 #ax.plot(x4, y4, '-', markersize=100, c='purple', label = r"$G_{4}$")
 
 plt.xlim(0, 3.8)
 plt.xlabel(r"Sarcomere length$[\mu m]$", fontsize = 18)
-plt.ylabel(r"G", fontsize = 18)
+plt.ylabel(r"H", fontsize = 18)
 plt.yticks(color="None")
 ax.legend()
-fig.savefig("remodel_freeenergy_length.png")
+fig.savefig("re_remodel_freeenergy_length.png")
 plt.show()

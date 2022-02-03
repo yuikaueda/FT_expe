@@ -28,19 +28,19 @@ y5 = -11.7143*x5+19.7143
 fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(1, 1, 1)
 
-ax.plot(x1, y1, '-', markersize=100, c='red', label = r"$G_{1}$")
-ax.plot(x2, y2, '-', markersize=100, c='blue', label = r"$G_{2}$")
-ax.plot(x3, y3, '-', markersize=100, c='green', label = r"$G_{3}$")
-ax.plot(x4, y4, '-', markersize=100, c='purple', label = r"$G_{4}$")
-ax.plot(x5, y5, linestyle="dashed", markersize=100, c='grey', label = r"$G_{sup}$")
+ax.plot(x1, y1, '-', markersize=100, c='red', label = r"$H_{1}$")
+ax.plot(x2, y2, '-', markersize=100, c='blue', label = r"$H_{2}$")
+ax.plot(x3, y3, '-', markersize=100, c='green', label = r"$H_{3}$")
+ax.plot(x4, y4, '-', markersize=100, c='purple', label = r"$H_{4}$")
+ax.plot(x5, y5, linestyle="dashed", markersize=100, c='grey', label = r"$H_{sup}$")
 
 plt.xlabel(r"Sarcomere length$[\mu m]$", fontsize = 18)
-plt.ylabel(r"$G$", fontsize = 18)
+plt.ylabel(r"$H$", fontsize = 18)
 
 plt.yticks(color="None")
 #ax.set_xlim(left=0)
 #ax.set_ylim(top=15)
 
 ax.legend()
-fig.savefig("label_freeenergy_length_dot.png")
+fig.savefig("re_label_freeenergy_length_dot.png")
 plt.show()

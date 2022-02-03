@@ -23,14 +23,14 @@ y2 = 20*x2*x2
 #y4 = -30*x4+12
 
 fig, ax = plt.subplots(1, 1)
-ax.plot(x1, y1, '-', markersize=100, c='red', label = r"$G_{c1}$")
-ax.plot(x2, y2, '-', markersize=100, c='blue', label = r"$G_{c2}$")
+ax.plot(x1, y1, '-', markersize=100, c='red', label = r"$H_{c1}$")
+ax.plot(x2, y2, '-', markersize=100, c='blue', label = r"$H_{c2}$")
 #ax.plot(x4, y4, '-', markersize=100, c='green', label = r"$G_{3}$")
 #ax.plot(x2, y2, '-', markersize=100, c='purple', label = r"$G_{4}$")
 
 plt.xlabel(r"$\varepsilon$", fontsize = 18)
-plt.ylabel(r"G", fontsize = 18)
+plt.ylabel(r"H", fontsize = 18)
 plt.yticks(color="None")
 ax.legend()
-fig.savefig("hennkann_com_freeenergy_strain_noy.png")
+fig.savefig("re_hennkann_com_freeenergy_strain_noy.png")
 plt.show()
