@@ -14,6 +14,7 @@ x_4 = np.linspace(18.4, 24, 100)
 y_4 = 0.5*np.sin(8*x_4)
 
 fig, ax = plt.subplots(1, 1)
+plt.fig(figsize=(5,3))
 
 ax.plot(x_1, y_1, '-', lw=2, c='black')
 ax.plot(x_2, y_2, '-', lw=2, c='red')
